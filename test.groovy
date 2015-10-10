@@ -1,19 +1,11 @@
-def line = "a ::: [a:0.05319148936170213, >:0.03900709219858156, b:0.011144883485309016, d:0.13880445795339413, n:0.23961499493414387, e:0.00303951367781155, g:0.02988855116514691, r:0.08611955420466058, k:0.03242147922998987, l:0.14285714285714285, m:0.03546099290780142, h:0.024822695035460994, s:0.04204660587639311, f:0.006585612968591692, p:0.002026342451874367, y:0.004052684903748734, u:0.060790273556231005, x:5.065856129685917E-4, z:0.0025329280648429585, c:0.0025329280648429585, t:0.020263424518743668, v:0.016210739614994935, i:0.004559270516717325, j:0.0010131712259371835, w:5.065856129685917E-4]"
+def count = args[0]
 
-def matcher = line =~ /(.*) ::: \[(.*)\]/
-def symbol = matcher[0][1]
-def next_letters = matcher[0][2]
-def next_letter_matches = next_letters =~ /(.):(([0-9]\.\d[E\-0-9]*+)*)/
+def male_first = "groovy generate_name.groovy norwegian_male_2.markov 50".execute().text.split('\n')
+def female_first = "groovy generate_name.groovy norwegian_female_2.markov 50".execute().text.split('\n')
+def surname = "groovy generate_name.groovy norwegian_surnames_2.markov 50".execute().text.split('\n')
+def hometown = "groovy generate_name.groovy norwegian_places_2.markov 50".execute().text.split('\n')
 
-println matcher
-println symbol
-println next_letters
-println next_letter_matches
-
-def next_threshold = 0.0d
-next_letter_matches.each { letter_match -> 
-	println "---"
-	println letter_match
-	println next_threshold
-	next_threshold += (letter_match[2] as Double)
+def rand = new Random()
+for (int i = 0; i < 50; i++){
+	println "${male_first[i]} og ${female_first[i]} ${surname[i]}, bosatt i ${hometown[i]} siden ${1900 + rand.nextInt(110)}"
 }
