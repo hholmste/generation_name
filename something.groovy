@@ -7,5 +7,5 @@ def hometown = "groovy generate_name.groovy norwegian_places_2.markov 50".execut
 
 def rand = new Random()
 for (int i = 0; i < 50; i++){
-	println "${male_first[i]} og ${female_first[i]} ${surname[i]}, bosatt i ${hometown[i]} siden ${1900 + rand.nextInt(110)}"
+	println "${male_first[i]} og ${female_first[i]} ${surname[i]}, bosatt i ${hometown[i]}siden ${1900 + rand.nextInt(110)}"
 }
