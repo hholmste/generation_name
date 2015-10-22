@@ -9,8 +9,11 @@ def startJetty() {
   def context = new Context(jetty, '/', Context.SESSIONS)
   context.resourceBase = '.' 
   context.addServlet(GroovyServlet, '*.groovy')
-  context.setAttribute('version', '1.0') 
- 
+  context.setAttribute('version', '1.0')
+
+  def fHold = context.addServlet(DefaultServlet, '/')
+  fHold.setInitParameter('resourceBase', './static')
+
   jetty.start()
 }
  
