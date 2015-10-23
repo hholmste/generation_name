@@ -19,3 +19,20 @@ Version 1.0 will _not_ allow web-based language generation; i.e. no writing to d
 
 I will need a groovlet that recounts the available flavours.
 
+## Design things
+
+I want to be vaguely inspired by question-and-answer style user interface.
+
+I also want to be able to go back to a previously generated name or list of names, so I probably need to be able to input seed. If nothing else, I'll get the frontend to generate a seed and then provide the link to the URL that generates the names. Something like /gen?language=foo&category=bar&seed=434 
+
+There are three inputs needed to be able to pick the right chain, and then optionally a number of names you want to generate.
+
+I think I don't want to expose the user to orderings. Instead I'll generate a choice of sounds a bit like, sounds something like, and sounds a lot like.
+
+The GUI:
+
+Give me (input, default 1) name(s) that sounds (a bit | something | a lot) like (language) (category)-names.
+
+The result:
+
+The list of names presented below the input-sentence, with a link to the actual generation-url.

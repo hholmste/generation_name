@@ -1,3 +1,7 @@
 body {
   font-size: 20px;
 }
+
+#number_input {
+	width: 4em;
+}
