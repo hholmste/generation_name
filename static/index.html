@@ -11,19 +11,25 @@
     <div id="the_question" class="hidden">
         Please give me 
         <span id="parent_number_input">
-            <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality()" />
+            <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality();" />
         </span> 
         name<span id="plural_name"></span>
         that sounds
         <span id="parent_ordering_input">
-            <select>
-            <option value="aBit">a bit</option>
-            <option value="something">something</option>
-            <option value="aLot">a lot</option>
+            <select id="ordering_select">
+                <option value="aBit">a bit</option>
+                <option value="something">something</option>
+                <option value="aLot">a lot</option>
             </select>
         </span> like 
-        <span id="parent_language_input">(language)</span> 
-        <span id="parent_category_input">(category)</span>-names.
+        <span id="parent_language_input">
+        <select id="language_select" onchange="selectedLanguageChanged();">
+        </select>
+        </span> 
+        <span id="parent_category_input">
+            <select id="category_select">
+            </select>
+        </span>-names.
     </div>
     <div id="the_answer" class="hidden">
     </div>
