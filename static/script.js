@@ -65,6 +65,63 @@ function optionsLoaded() {
 	showOnlyQuestion();
 }
 
+function determineOrdering() {
+	var textVal = document.getElementById("ordering_select").value;
+	if (textVal == "aBit") return 1;
+	if (textVal == "something") return 2;
+	if (textVal == "aLot") return 3;
+	return -1;
+}
+
+function getNames() {
+	// show loading-screen again
+	show("loading_screen");
+
+	// create a seed and construct the url
+	var seed = Math.floor(Math.random() * Math.pow(2,31));
+	// generate-name.groovy?language=norwegian&category=female&ordering=3&count=50&seed=4
+	var url = "generate-name.groovy?language="
+	 + document.getElementById("language_select").value
+	 + "&category="
+	 + document.getElementById("category_select").value
+	 + "&ordering="
+	 + determineOrdering()
+	 + "&seed="
+	 + seed
+	 + "&count="
+	 + document.getElementById("number_input").value;
+
+	// fetch names
+	var request = new XMLHttpRequest();
+	request.addEventListener("load", function () {
+
+		var original = document.getElementById("resultList");
+		if (original) document.getElementById("the_answer").removeChild(original);
+
+		var resultList = document.createElement("ul");
+		resultList.id = "resultList"; 
+		var results = this.responseText.split("\n");
+		for (var r in results) {
+			if (results[r] && results[r].length > 0) {
+				var nameElement = document.createElement("li");
+				nameElement.innerHTML = results[r];
+				resultList.appendChild(nameElement);				
+			}
+		}
+		var urlElement = document.createElement("li");
+		urlElement.innerHTML = "<a class='just_the_names' href='" + url + "'>Just the names</a>";
+		resultList.appendChild(urlElement);
+		document.getElementById("the_answer").appendChild(resultList);
+
+		show("the_answer");
+		hide("loading_screen"); 
+	} );
+	request.open("GET", url);
+	request.send();
+
+	// remove loading-screen and show names + generation-url
+}
+
 var OPTIONS = (function () {
 	var mod = {};
 
