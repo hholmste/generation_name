@@ -1,0 +1,11 @@
+body {
+  /*font-size: 20px;*/
+}
+
+#number_input {
+	/*width: 4em;*/
+}
+
+.hidden {
+	display: none;
+}

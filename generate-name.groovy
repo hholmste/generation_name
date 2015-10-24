@@ -1,12 +1,25 @@
 // parse the given .markov file
 // each symbol is paired with a list of possible next letter and an occurance 0 to 1. Occurance 0 means it should never appear, and 1 means it will always appear.
-def dictionaryFile = args[0]
+def dictionaryFile = "none"
 def number_of_names = 1
-if (args.length > 1) {
-	number_of_names = args[1] as Integer
+def seed = new Random().nextLong()
+if (this.hasProperty("args")) {
+	dictionaryFile = args[0]
+	if (args.length > 1) {
+		number_of_names = args[1] as Integer
+	}
+} else {
+	System.err.println("params: $params")
+	dictionaryFile = "chains/${params["language"]}_${params["category"]}_${params["ordering"]}.markov"
+	if (params["count"] != null) {
+		number_of_names = params["count"] as Integer
+	}
+	if (params["seed"] != null) {
+		seed = params["seed"] as Integer
+	}
 }
 
-def rand = new Random()
+def rand = new Random(seed)
 
 def parseFile(file) {
 	def syms = [:]
