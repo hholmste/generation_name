@@ -36,3 +36,9 @@ Give me (input, default 1) name(s) that sounds (a bit | something | a lot) li
 The result:
 
 The list of names presented below the input-sentence, with a link to the actual generation-url.
+
+## Deployfun
+
+Docker-container. External volume containing the markov-chains and nothing else. New chains are added through git pulls.
+
+
