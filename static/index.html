@@ -1,24 +1,31 @@
 <!doctype html>
 <html>
   <head>
-  	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Generation Name</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="/script.js" type="text/javascript"></script>
   </head>
   <body>
-    Please give me 
-    <span id="parent_number_input"><input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality()" /></span> 
-    name<span id="plural_name"></span>
-    that sounds
-	<span id="parent_ordering_input">
-		<select>
-		<option value="aBit">a bit</option>
-		<option value="something">something</option>
-		<option value="aLot">a lot</option>
-		</select>
-	</span> like 
-	<span id="parent_language_input">(language)</span> 
-	<span id="parent_category_input">(category)</span>-names.
+    <div id="loading_screen">Loading ...</div>
+    <div id="the_question" class="hidden">
+        Please give me 
+        <span id="parent_number_input">
+            <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality()" />
+        </span> 
+        name<span id="plural_name"></span>
+        that sounds
+        <span id="parent_ordering_input">
+            <select>
+            <option value="aBit">a bit</option>
+            <option value="something">something</option>
+            <option value="aLot">a lot</option>
+            </select>
+        </span> like 
+        <span id="parent_language_input">(language)</span> 
+        <span id="parent_category_input">(category)</span>-names.
+    </div>
+    <div id="the_answer" class="hidden">
+    </div>
   </body>
 </html>
