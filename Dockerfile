@@ -4,8 +4,11 @@ FROM webratio/groovy
 # run from /source
 # get your chains from /source/chains
 RUN mkdir -p /source/chains
+RUN mkdir -p /source/static
 
 COPY ./*.groovy /source/
+
+COPY ./static/* /source/static/
 
 EXPOSE 8080
 
