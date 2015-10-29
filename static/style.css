@@ -1,11 +1,44 @@
 body {
-  /*font-size: 20px;*/
+  font-size: 22px;
+  font-family: Helvetica;
+  color: #353535;
+  background: #fafafa repeat; 
+}
+
+input, select {
+  font-size: 1.0em;
+  width: 7.8em;
+  color: #3889B5;
+  padding: 2px;
+}
+
+#gogogo {
+  color: inherit;
 }
 
 #number_input {
-	/*width: 4em;*/
+  width: 3em;
 }
 
 .hidden {
-	display: none;
+  display: none;
+}
+
+#main {
+	width: 80%;
+	padding-top: 5%;
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+	margin-left: -39px;
+}
+
+li {
+	padding-top: 7px;
+}
+
+li::first-letter {
+	text-transform: uppercase;
 }

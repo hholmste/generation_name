@@ -1,10 +1,19 @@
 function ensurePlurality() {
   var inputVal = document.getElementById("number_input").value;
-  var result = ""
+  var name_s = "";
+  var sound_s = "s";
   if (inputVal > 1) {
-  	result = "s"
+  	name_s = "s"
+  	sound_s = "";
   }
-  document.getElementById("plural_name").innerHTML = result;
+  document.getElementById("plural_name").innerHTML = name_s;
+  document.getElementById("plural_sound").innerHTML = sound_s;
+}
+
+function jumpToNames() {
+	var url = location.href;
+	location.href = "#names";
+	history.replaceState(null,null,url);
 }
 
 function hide(elementId) {
@@ -63,6 +72,7 @@ function optionsLoaded() {
 
 	selectedLanguageChanged();
 	showOnlyQuestion();
+	ensurePlurality();
 }
 
 function determineOrdering() {
@@ -75,6 +85,7 @@ function determineOrdering() {
 
 function getNames() {
 	// show loading-screen again
+	hide("the_question");
 	show("loading_screen");
 
 	// create a seed and construct the url
@@ -113,8 +124,11 @@ function getNames() {
 		resultList.appendChild(urlElement);
 		document.getElementById("the_answer").appendChild(resultList);
 
+		hide("loading_screen");
 		show("the_answer");
-		hide("loading_screen"); 
+		show("the_question"); 
+
+		jumpToNames();
 	} );
 	request.open("GET", url);
 	request.send();

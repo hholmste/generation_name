@@ -7,32 +7,34 @@
     <script src="/script.js" type="text/javascript"></script>
   </head>
   <body>
-    <div id="loading_screen">Loading ...</div>
-    <div id="the_question" class="hidden">
-        Please give me 
-        <span id="parent_number_input">
-            <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality();" />
-        </span> 
-        name<span id="plural_name"></span>
-        that sounds
-        <span id="parent_ordering_input">
-            <select id="ordering_select">
-                <option value="aBit">a bit</option>
-                <option value="something">something</option>
-                <option value="aLot">a lot</option>
+      <div id="main">
+        <div id="loading_screen">Loading ...</div>
+        <div id="the_question" class="hidden">
+            <h1>NAMEGIVER</h1>
+            <p id="please">Please give me</p> 
+            <p id="parent_number_input">
+                <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality();" />
+            name<span id="plural_name"></span> that sound<span id="plural_sound">s</span></p>
+            <p id="parent_ordering_input">
+                <select id="ordering_select">
+                    <option value="aBit">a bit</option>
+                    <option value="something">something</option>
+                    <option value="aLot">a lot</option>
+                </select>
+            like</p> 
+            <p id="parent_language_input">
+            <select id="language_select" onchange="selectedLanguageChanged();">
             </select>
-        </span> like 
-        <span id="parent_language_input">
-        <select id="language_select" onchange="selectedLanguageChanged();">
-        </select>
-        </span> 
-        <span id="parent_category_input">
-            <select id="category_select">
-            </select>
-        </span>-names.
-        <input type="button" value="Go go go!" onclick="getNames();"></input>
-    </div>
-    <div id="the_answer" class="hidden">
+            </p> 
+            <p id="parent_category_input">
+                <select id="category_select">
+                </select>
+            names</p>
+            <p><input id="gogogo" type="button" value="GO GO GO!" onclick="getNames();"></input></p>
+        </div>
+        <div id="the_answer" class="hidden">
+        <a name="names" />
+        </div>
     </div>
   </body>
   <script>
