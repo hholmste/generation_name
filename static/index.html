@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Generation Name</title>
+    <title>Namegiver</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="/script.js" type="text/javascript"></script>
   </head>
@@ -13,13 +13,13 @@
             <h1>NAMEGIVER</h1>
             <p id="please">Please give me</p> 
             <p id="parent_number_input">
-                <input id="number_input" type="number" min="1" max="50" value="1" oninput="ensurePlurality();" />
+                <input id="number_input" type="number" min="1" max="50" value="10" oninput="ensurePlurality();" />
             name<span id="plural_name"></span> that sound<span id="plural_sound">s</span></p>
             <p id="parent_ordering_input">
                 <select id="ordering_select">
-                    <option value="aBit">a bit</option>
-                    <option value="something">something</option>
                     <option value="aLot">a lot</option>
+                    <option value="something">something</option>
+                    <option value="aBit">a bit</option>
                 </select>
             like</p> 
             <p id="parent_language_input">
@@ -32,6 +32,7 @@
             names</p>
             <p><input id="gogogo" type="button" value="GO GO GO!" onclick="getNames();"></input></p>
         </div>
+        <div id="loading_the_answer" class="hidden">Generating...</div>
         <div id="the_answer" class="hidden">
         <a name="names" />
         </div>

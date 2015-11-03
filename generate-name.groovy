@@ -9,7 +9,6 @@ if (this.hasProperty("args")) {
 		number_of_names = args[1] as Integer
 	}
 } else {
-	System.err.println("params: $params")
 	dictionaryFile = "chains/${params["language"]}_${params["category"]}_${params["ordering"]}.markov"
 	if (params["count"] != null) {
 		number_of_names = params["count"] as Integer
@@ -85,6 +84,5 @@ while (names.size() < number_of_names) {
 	}
 	names << name
 }
-
 
 names.each { println it}

@@ -85,8 +85,8 @@ function determineOrdering() {
 
 function getNames() {
 	// show loading-screen again
-	hide("the_question");
-	show("loading_screen");
+	hide("the_answer");
+	show("loading_the_answer");
 
 	// create a seed and construct the url
 	var seed = Math.floor(Math.random() * Math.pow(2,31));
@@ -124,7 +124,7 @@ function getNames() {
 		resultList.appendChild(urlElement);
 		document.getElementById("the_answer").appendChild(resultList);
 
-		hide("loading_screen");
+		hide("loading_the_answer");
 		show("the_answer");
 		show("the_question"); 
 
